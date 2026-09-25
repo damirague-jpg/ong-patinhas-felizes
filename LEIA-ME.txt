@@ -1,0 +1,80 @@
+ONG PATINHAS FELIZES — PROJETO ACADÊMICO DE ADS
+
+COMO ABRIR
+1. Extraia a pasta inteira do arquivo ZIP.
+2. Abra index.html com dois cliques, usando seu navegador.
+3. Use o menu para acessar Projetos e Seja voluntário.
+Não precisa instalar programas, iniciar servidor ou ter internet para navegar.
+Mantenha styles.css e a pasta imagens junto dos arquivos HTML.
+
+ARQUIVOS
+index.html         Apresentação da ONG, imagem, formas de ajudar e contato.
+projetos.html      Adoção, Thor, Luna, doação, voluntariado e informações extras.
+cadastro.html      Formulário demonstrativo de voluntário.
+demonstracao.html  Explicação exibida após o teste do formulário.
+styles.css         Estilos compartilhados por todas as páginas.
+imagens/           Fotografias locais, para uso também sem internet.
+GUIA-DREAMSHAPER.md Explicação do código e relação com as telas da atividade.
+CREDITOS.txt       Fontes das fotos.
+
+O QUE FUNCIONA
+- Navegação entre páginas e links para seções.
+- Exibição das imagens locais e adaptação do conteúdo a telas pequenas.
+- Campos de texto, seleção, caixa de ciência e limpeza do formulário.
+- Validação nativa de campos obrigatórios, tamanho mínimo e formato de e-mail.
+- Data de nascimento, CPF, telefone obrigatório, CEP, endereço e seleção de UF.
+- Formatos exigidos por pattern: CPF, telefone fixo/celular com DDD e CEP.
+- Abertura da página de demonstração quando os campos atendem às regras.
+
+LIMITES DO FORMULÁRIO
+HTML e CSS não armazenam inscrições. O método GET leva os valores para a
+barra de endereço da página demonstracao.html. Não há banco de dados,
+envio de e-mail, autenticação ou cadastro efetivo. Use apenas dados fictícios,
+porque a URL pode ficar no histórico ou ser compartilhada.
+CPF, telefone e CEP são obrigatórios e têm validação de formato. A pontuação
+precisa ser digitada: não há máscara automática. Não há consulta de existência
+nem cálculo dos dígitos verificadores do CPF. A data de nascimento é obrigatória,
+mas não há regra de idade mínima ou bloqueio de datas futuras nesta versão.
+Para uso real, seria necessário um serviço que receba e guarde os dados.
+
+COMO ESTUDAR E PERSONALIZAR
+Abra os arquivos em um editor de texto. Comece pelo index.html, depois leia
+projetos.html e cadastro.html. Por último, veja os comentários em styles.css.
+Altere os textos entre as tags. No CSS, experimente mudar as cores e os
+espaçamentos. Atualize as descrições alt se trocar as fotografias.
+Os contatos e perfis são fictícios. Antes de uso real, substitua-os por dados
+autorizados e conecte os recursos necessários. Não há canal real de doação.
+
+REVISÃO DA ATIVIDADE
+O conteúdo foi alinhado às quatro imagens disponíveis na conversa anterior:
+estrutura semântica, hierarquia de títulos, página inicial e projetos sociais.
+O formulário foi ampliado conforme os requisitos de CPF, telefone, CEP,
+data de nascimento, endereço e estado informados posteriormente pelo aluno.
+O enunciado completo ainda não foi disponibilizado.
+
+CONFERÊNCIA
+O cadastro.html atualizado foi conferido no W3C Nu HTML Checker em 25/09/2026:
+nenhum erro ou aviso de marcação. Os padrões de CPF, telefone e CEP também
+foram testados com exemplos que devem ser aceitos e rejeitados.
+Foi feita revisão do código, dos caminhos locais, dos títulos, dos rótulos
+do formulário e das imagens. A abertura automatizada de arquivos locais
+no navegador integrado foi bloqueada pela política do ambiente; por isso,
+a aparência e as interações no navegador precisam da conferência manual abaixo.
+
+ROTEIRO DE TESTE MANUAL
+1. Abra index.html e navegue por todos os itens do menu.
+2. Em Projetos, teste os atalhos Adoção, Doações e Voluntariado.
+3. No cadastro vazio, pressione Testar cadastro: o navegador deve apontar
+   um campo obrigatório. Informe um e-mail sem @ e confira o aviso.
+4. Use apenas dados fictícios. Preencha também nascimento, CPF, telefone,
+   CEP, endereço e estado. Teste CPF e CEP sem pontuação e telefone fora do
+   formato: o navegador deve impedir o envio. Corrija os formatos indicados,
+   complete os demais campos e marque a ciência. Testar cadastro deve abrir
+   demonstracao.html. Teste tanto um telefone fixo quanto um celular.
+5. Volte ao cadastro, preencha algum campo e use Limpar campos.
+6. Navegue com Tab para conferir o foco e o link Pular para o conteúdo.
+7. Diminua a janela: os cartões dos animais devem ficar um abaixo do outro.
+
+ENTREGA
+Envie a pasta completa ou seu ZIP quando a atividade pedir os arquivos.
+Não envie somente index.html: ele depende do CSS e das imagens da pasta.
