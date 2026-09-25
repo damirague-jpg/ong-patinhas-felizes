@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulário demonstrativo de cadastro de voluntários da ONG Patinhas Felizes.">
+    <title>Cadastro de voluntário | ONG Patinhas Felizes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <header>
+        <p class="nome-ong">ONG Patinhas Felizes</p>
+        <p>Cuidado, carinho e uma nova chance.</p>
+        <nav aria-label="Menu principal">
+            <a href="index.html">Início</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="cadastro.html" aria-current="page">Seja voluntário</a>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+        <h1>Cadastro de voluntário</h1>
+        <p>Seu tempo pode fazer parte de uma nova história.</p>
+        <section>
+            <h2>Preencha seu interesse</h2>
+            <p id="aviso" class="aviso"><strong>Demonstração acadêmica:</strong> use dados fictícios. O formulário verifica os campos e abre uma página de demonstração, mas não registra nem envia uma inscrição à ONG. Os dados aparecem na barra de endereço.</p>
+            <p>Os campos indicados com * são obrigatórios.</p>
+            <!-- GET coloca os valores na URL. Não há servidor para salvar cadastros. -->
+            <form action="demonstracao.html" method="get" aria-describedby="aviso">
+                <fieldset>
+                    <legend>Dados pessoais e de contato</legend>
+                    <label for="nome">Nome completo *</label>
+                    <input type="text" id="nome" name="nome" required minlength="3" maxlength="100" autocomplete="off">
+
+                    <label for="nascimento">Data de nascimento *</label>
+                    <input type="date" id="nascimento" name="nascimento" required autocomplete="off">
+
+                    <!-- pattern exige o formato completo, incluindo a pontuação. -->
+                    <label for="cpf">CPF *</label>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" maxlength="14" title="Digite o CPF no formato 000.000.000-00." aria-describedby="ajuda-cpf" required autocomplete="off">
+                    <p id="ajuda-cpf">Formato: 000.000.000-00. Digite os pontos e o hífen. Este teste verifica apenas o formato, não os dígitos verificadores.</p>
+
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" required maxlength="100" autocomplete="off" placeholder="nome@example.com">
+
+                    <label for="telefone">Telefone com DDD *</label>
+                    <input type="tel" id="telefone" name="telefone" pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}" maxlength="15" autocomplete="off" placeholder="(00) 00000-0000" title="Use (00) 0000-0000 para fixo ou (00) 00000-0000 para celular." aria-describedby="ajuda-telefone" required>
+                    <p id="ajuda-telefone">Use (00) 0000-0000 para fixo ou (00) 00000-0000 para celular, incluindo parênteses, espaço e hífen.</p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Endereço</legend>
+                    <label for="cep">CEP *</label>
+                    <input type="text" id="cep" name="cep" placeholder="00000-000" pattern="[0-9]{5}-[0-9]{3}" maxlength="9" title="Digite o CEP no formato 00000-000." aria-describedby="ajuda-cep" required autocomplete="off">
+                    <p id="ajuda-cep">Formato: 00000-000. Digite também o hífen.</p>
+
+                    <label for="endereco">Endereço (rua, número e bairro) *</label>
+                    <input type="text" id="endereco" name="endereco" required maxlength="200" autocomplete="off">
+
+                    <label for="cidade">Cidade *</label>
+                    <input type="text" id="cidade" name="cidade" required minlength="2" maxlength="80" autocomplete="off">
+
+                    <label for="estado">Estado *</label>
+                    <select id="estado" name="estado" required>
+                        <option value="">Selecione um estado</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Participação no projeto</legend>
+                    <label for="area">Área de interesse *</label>
+                    <select id="area" name="area" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="cuidados">Cuidados com os animais</option>
+                        <option value="campanhas">Organização de campanhas</option>
+                        <option value="divulgacao">Divulgação e feiras de adoção</option>
+                    </select>
+
+                    <label for="disponibilidade">Disponibilidade *</label>
+                    <select id="disponibilidade" name="disponibilidade" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="semana-manha">Durante a semana, de manhã</option>
+                        <option value="semana-tarde">Durante a semana, à tarde</option>
+                        <option value="fim-de-semana">Nos fins de semana</option>
+                    </select>
+
+                    <label for="mensagem">Por que você quer participar? (opcional)</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" maxlength="500"></textarea>
+                </fieldset>
+
+                <label class="opcao" for="ciente">
+                    <input type="checkbox" id="ciente" name="ciente" value="sim" required>
+                    Estou ciente de que este cadastro é apenas uma demonstração. *
+                </label>
+                <button type="submit">Testar cadastro</button>
+                <button class="secundario" type="reset">Limpar campos</button>
+            </form>
+        </section>
+        <aside>
+            <h2>Como seria o próximo passo?</h2>
+            <p>Em um cadastro real, a equipe entraria em contato para apresentar as atividades e combinar a participação. Nesta versão, não haverá contato.</p>
+            <a href="projetos.html#voluntariado">Saiba mais sobre o voluntariado</a>
+        </aside>
+    </main>
+
+    <footer>
+        <p>ONG Patinhas Felizes — Projeto acadêmico de ADS.</p>
+        <p>Formulário demonstrativo, sem armazenamento de inscrições.</p>
+    </footer>
+</body>
+</html>
