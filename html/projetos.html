@@ -5,21 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Adoção responsável, doações e voluntariado no projeto ONG Patinhas Felizes.">
     <title>Projetos | ONG Patinhas Felizes</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
+        <div class="cabecalho-interno">
+        <div class="marca">
         <p class="nome-ong">ONG Patinhas Felizes</p>
         <p>Cuidado, carinho e uma nova chance.</p>
-        <nav aria-label="Menu principal">
-            <a href="index.html">Início</a>
-            <a href="projetos.html" aria-current="page">Projetos</a>
-            <a href="cadastro.html">Seja voluntário</a>
+        </div>
+        <!-- Apenas uma das duas navegações fica visível em cada tamanho de tela. -->
+        <nav class="menu-desktop" aria-label="Menu principal">
+            <ul class="menu-lista">
+                <li><a href="../index.html">Início</a></li>
+                <li>
+                    <details class="submenu">
+                        <summary>Projetos</summary>
+                        <ul class="submenu-links">
+                            <li><a href="projetos.html" aria-current="page">Todos os projetos</a></li>
+                            <li><a href="projetos.html#adocao">Adoção responsável</a></li>
+                            <li><a href="projetos.html#doacoes">Doações</a></li>
+                            <li><a href="projetos.html#voluntariado">Voluntariado</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a href="cadastro.html">Seja voluntário</a></li>
+            </ul>
         </nav>
+        <details class="menu-mobile">
+            <summary><span aria-hidden="true">☰</span> Menu</summary>
+            <nav aria-label="Menu principal">
+                <ul class="menu-lista">
+                <li><a href="../index.html">Início</a></li>
+                <li>
+                    <details class="submenu">
+                        <summary>Projetos</summary>
+                        <ul class="submenu-links">
+                            <li><a href="projetos.html" aria-current="page">Todos os projetos</a></li>
+                            <li><a href="projetos.html#adocao">Adoção responsável</a></li>
+                            <li><a href="projetos.html#doacoes">Doações</a></li>
+                            <li><a href="projetos.html#voluntariado">Voluntariado</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a href="cadastro.html">Seja voluntário</a></li>
+            </ul>
+            </nav>
+        </details>
+        </div>
     </header>
 
-    <main id="conteudo">
+    <main id="conteudo" class="projetos">
         <h1>Projetos sociais</h1>
         <p>Conheça as ações propostas para a ONG e as formas de participar.</p>
         <nav class="atalhos" aria-label="Assuntos desta página">
@@ -37,24 +74,26 @@
                 <li>Agendar uma visita para conhecer o animal.</li>
                 <li>Confirmar as condições de cuidado e assinar um termo de adoção responsável.</li>
             </ol>
-            <a href="index.html#contato">Veja os dados de contato do projeto</a>
+            <a href="../index.html#contato">Veja os dados de contato do projeto</a>
         </section>
 
         <section id="animais">
             <h2>Animais disponíveis</h2>
-            <p>Perfis fictícios para demonstrar a página de adoção. Fotos ilustrativas.</p>
+            <p class="alerta-info"><strong>Informação:</strong> Perfis fictícios para demonstrar a página de adoção. Fotos ilustrativas.</p>
             <div class="animais">
                 <!-- Cada article apresenta um animal de forma independente. -->
                 <article>
-                    <img src="imagens/thor.jpg" alt="Cachorro de pelagem dourada sentado em um gramado, representando Thor." loading="lazy">
+                    <img src="../imagens/thor.jpg" alt="Cachorro de pelagem dourada sentado em um gramado, representando Thor." loading="lazy">
                     <h3>Thor</h3>
+                    <span class="badge">Disponível para adoção</span>
                     <p><strong>Idade:</strong> 3 anos. <strong>Porte:</strong> grande.</p>
                     <p>Brincalhão e companheiro, gosta de passeios e precisa de uma família com tempo para atividades diárias.</p>
                     <a href="#adocao">Como adotar o Thor</a>
                 </article>
                 <article>
-                    <img src="imagens/luna.jpg" alt="Gato de pelagem marrom e listrada, com olhos verdes, representando Luna." loading="lazy">
+                    <img src="../imagens/luna.jpg" alt="Gato de pelagem marrom e listrada, com olhos verdes, representando Luna." loading="lazy">
                     <h3>Luna</h3>
+                    <span class="badge">Disponível para adoção</span>
                     <p><strong>Idade:</strong> 2 anos. <strong>Porte:</strong> pequeno.</p>
                     <p>Curiosa e tranquila, gosta de companhia e procura um lar seguro, com janelas protegidas por telas.</p>
                     <a href="#adocao">Como adotar a Luna</a>
@@ -70,7 +109,7 @@
             <h3>Contribuição financeira</h3>
             <p>Em uma ONG real, a equipe informaria um canal oficial para contribuir e apresentaria a prestação de contas dos valores recebidos e das despesas.</p>
             <p>Como este é um projeto acadêmico, não há chave Pix, cobrança ou recebimento de dinheiro.</p>
-            <a href="index.html#contato">Consulte os contatos ilustrativos</a>
+            <a href="../index.html#contato">Consulte os contatos ilustrativos</a>
         </section>
 
         <section id="voluntariado">
@@ -98,3 +137,4 @@
     </footer>
 </body>
 </html>
+

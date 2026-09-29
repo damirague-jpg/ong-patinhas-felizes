@@ -1,0 +1,437 @@
+/* Design System: cores, tipografia e escala modular compartilhadas. */
+:root {
+    --cor-primaria: #245443;
+    --cor-primaria-escura: #173d30;
+    --cor-secundaria: #93601d;
+    --cor-aviso: #f9efd9;
+    --cor-texto: #29352f;
+    --cor-texto-suave: #526158;
+    --cor-fundo: #f5f4ee;
+    --cor-superficie: #ffffff;
+    --cor-borda: #d4ddd5;
+    --cor-borda-campo: #788f80;
+    --cor-suave: #e4eae3;
+    --cor-foco: #996000;
+    --fonte-principal: Arial, Helvetica, sans-serif;
+    --texto-pequeno: 0.875rem;
+    --texto-base: 1rem;
+    --texto-h3: 1.25rem;
+    --texto-h2: 1.5rem;
+    --texto-marca: 1.75rem;
+    --texto-h1: 2rem;
+    --entrelinha-texto: 1.6;
+    --entrelinha-titulo: 1.2;
+    /* Escala estrita: múltiplos de 4px quando 1rem = 16px. */
+    --espaco-1: 0.25rem;
+    --espaco-2: 0.5rem;
+    --espaco-3: 0.75rem;
+    --espaco-4: 1rem;
+    --espaco-5: 1.25rem;
+    --espaco-6: 1.5rem;
+    --espaco-8: 2rem;
+    --espaco-10: 2.5rem;
+    --espaco-12: 3rem;
+    --espaco-16: 4rem;
+    --raio-pequeno: 0.375rem;
+    --raio-padrao: 0.75rem;
+    --largura-conteudo: 75rem;
+    --largura-formulario: 44rem;
+    --altura-toque: 2.75rem;
+    --altura-foto: 16.25rem;
+    --altura-capa: 24rem;
+    --margem-pagina: var(--espaco-4);
+    --intervalo-grid: var(--espaco-4);
+    --recuo-bloco: var(--espaco-5);
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: var(--fonte-principal);
+    font-size: var(--texto-base);
+    line-height: var(--entrelinha-texto);
+    color: var(--cor-texto);
+    background: var(--cor-fundo);
+}
+/* Flexbox distribui marca e navegação, permitindo quebra dos links. */
+header { padding: var(--espaco-6) var(--margem-pagina); color: var(--cor-superficie); background: var(--cor-primaria); }
+.cabecalho-interno {
+    max-width: var(--largura-conteudo);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espaco-6);
+    text-align: center;
+}
+header p { margin: var(--espaco-1) 0; }
+.nome-ong { font-size: var(--texto-marca); font-weight: bold; line-height: var(--entrelinha-titulo); }
+nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--espaco-2); }
+nav a { display: inline-flex; align-items: center; min-height: var(--altura-toque); padding: var(--espaco-2) var(--espaco-3); border-radius: var(--raio-pequeno); }
+header a { color: var(--cor-superficie); }
+nav a[aria-current="page"] { font-weight: bold; background: var(--cor-primaria-escura); }
+header nav a:hover { background: var(--cor-primaria-escura); }
+/* Navegação nativa: summary abre e fecha details sem JavaScript. */
+.menu-desktop {
+    display: none;
+}
+
+.menu-mobile {
+    width: 100%;
+    text-align: left;
+}
+
+.menu-mobile > summary,
+.submenu > summary {
+    min-height: var(--altura-toque);
+    padding: var(--espaco-2) var(--espaco-3);
+    border-radius: var(--raio-pequeno);
+    cursor: pointer;
+}
+
+.menu-mobile > summary {
+    list-style: none;
+    width: fit-content;
+    margin-inline: auto;
+    border: 1px solid var(--cor-superficie);
+}
+
+.menu-mobile > summary::-webkit-details-marker {
+    display: none;
+}
+
+.menu-mobile > nav {
+    margin-top: var(--espaco-3);
+}
+
+.menu-lista,
+.submenu-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-lista {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-2);
+    width: 100%;
+}
+
+.menu-lista li {
+    margin: 0;
+    min-width: 0;
+}
+
+.menu-lista a {
+    width: 100%;
+}
+
+.submenu-links {
+    padding: var(--espaco-2);
+    background: var(--cor-primaria-escura);
+    border: 1px solid var(--cor-borda-campo);
+    border-radius: var(--raio-pequeno);
+}
+
+.menu-mobile > summary:hover,
+.submenu > summary:hover,
+.menu-mobile[open] > summary,
+.submenu[open] > summary {
+    background: var(--cor-primaria-escura);
+}
+
+header summary:focus-visible {
+    outline: 3px solid var(--cor-superficie);
+    outline-offset: 3px;
+}
+
+/* Macro layout: cada página usa exatamente 12 trilhas de Grid. */
+main {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--intervalo-grid);
+    width: calc(100% - var(--margem-pagina) * 2);
+    max-width: var(--largura-conteudo);
+    margin: var(--espaco-8) auto var(--espaco-12);
+    align-items: start;
+}
+main > * { grid-column: 1 / -1; min-width: 0; margin: 0; }
+h1, h2, h3 { line-height: var(--entrelinha-titulo); color: var(--cor-primaria); overflow-wrap: anywhere; }
+h1 { font-size: var(--texto-h1); }
+h2 { margin: 0 0 var(--espaco-4); font-size: var(--texto-h2); }
+h3 { margin: var(--espaco-6) 0 var(--espaco-3); font-size: var(--texto-h3); }
+p, ul, ol { margin: 0 0 var(--espaco-4); }
+ul, ol { padding-left: var(--espaco-6); }
+li + li { margin-top: var(--espaco-2); }
+section, aside { padding: var(--recuo-bloco); background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio-padrao); }
+section > :last-child, aside > :last-child { margin-bottom: 0; }
+aside, .aviso { background: var(--cor-aviso); }
+.aviso { padding: var(--espaco-4); border-left: var(--espaco-1) solid var(--cor-secundaria); border-radius: var(--raio-pequeno); }
+.atalhos { justify-content: flex-start; }
+a { color: var(--cor-primaria); text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 2px; }
+:where(a, button, input, select, textarea):focus-visible { outline: 3px solid var(--cor-foco); outline-offset: 3px; }
+header a:focus-visible { outline-color: var(--cor-superficie); }
+img { display: block; max-width: 100%; height: auto; border-radius: var(--raio-pequeno); }
+.foto-inicial { width: 100%; max-height: var(--altura-capa); object-fit: cover; object-position: center 40%; margin-bottom: var(--espaco-6); }
+/* Flexbox organiza cartões e alinha seus links na base. */
+.animais { display: flex; flex-direction: column; gap: var(--espaco-6); }
+.animais article { display: flex; flex-direction: column; flex: 1; min-width: 0; padding: var(--espaco-4); border: 1px solid var(--cor-borda); border-radius: var(--raio-padrao); }
+/* Realce discreto, também disponível ao navegar pelo teclado. */
+.animais article:hover,
+.animais article:focus-within {
+    border-color: var(--cor-primaria);
+}
+
+.animais article > a { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; min-height: var(--altura-toque); }
+.animais img { width: 100%; height: var(--altura-foto); object-fit: cover; }
+.botao, button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--altura-toque);
+    padding: var(--espaco-3) var(--espaco-5);
+    border: 2px solid var(--cor-primaria);
+    border-radius: var(--raio-pequeno);
+    background: var(--cor-primaria);
+    color: var(--cor-superficie);
+    font: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+/* Transição curta, apenas nas cores: os botões não se deslocam. */
+.botao, button {
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.botao:hover,
+button:enabled:hover {
+    background-color: var(--cor-primaria-escura);
+    border-color: var(--cor-primaria-escura);
+}
+
+.botao:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 3px;
+}
+
+.botao:active,
+button:enabled:active {
+    border-color: var(--cor-primaria-escura);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.secundario {
+    background: var(--cor-superficie);
+    color: var(--cor-primaria);
+}
+
+.secundario:enabled:hover {
+    background-color: var(--cor-suave);
+}
+
+/* O atributo disabled no HTML ativa este estado, quando necessário. */
+button:disabled {
+    background-color: var(--cor-suave);
+    border-color: var(--cor-borda-campo);
+    color: var(--cor-texto-suave);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+.acoes-formulario { display: flex; flex-wrap: wrap; gap: var(--espaco-3); }
+.acoes-formulario button { flex: 1 1 12rem; }
+address { font-style: normal; overflow-wrap: anywhere; }
+form { max-width: var(--largura-formulario); }
+fieldset { min-width: 0; margin: var(--espaco-6) 0; padding: var(--espaco-4); border: 1px solid var(--cor-borda-campo); border-radius: var(--raio-pequeno); }
+legend { max-width: 100%; padding: 0 var(--espaco-2); font-weight: bold; }
+label { display: block; margin: var(--espaco-4) 0 var(--espaco-2); }
+input, select, textarea { width: 100%; min-width: 0; min-height: var(--altura-toque); padding: var(--espaco-3); border: 1px solid var(--cor-borda-campo); border-radius: var(--raio-pequeno); font: inherit; color: var(--cor-texto); background: var(--cor-superficie); }
+input::placeholder, textarea::placeholder { color: var(--cor-texto-suave); opacity: 1; }
+fieldset > p { margin-top: var(--espaco-2); font-size: var(--texto-pequeno); color: var(--cor-texto-suave); }
+/* user-valid e user-invalid aguardam interação ou tentativa de envio.
+   Assim, os campos obrigatórios não aparecem com erro ao abrir a página.
+   valid e invalid continuam seguindo as regras de validação do HTML. */
+fieldset input:valid:user-valid,
+fieldset select:valid:user-valid,
+fieldset textarea:valid:user-valid {
+    border-color: var(--cor-primaria);
+    background-color: var(--cor-suave);
+}
+
+fieldset input:invalid:user-invalid,
+fieldset select:invalid:user-invalid,
+fieldset textarea:invalid:user-invalid {
+    border-color: var(--cor-secundaria);
+    background-color: var(--cor-aviso);
+}
+
+textarea { resize: vertical; }
+.opcao { display: flex; align-items: flex-start; gap: var(--espaco-3); margin-bottom: var(--espaco-6); }
+.opcao input { flex: 0 0 auto; width: 1.25rem; min-height: 1.25rem; height: 1.25rem; margin: var(--espaco-1) 0 0; accent-color: var(--cor-primaria); }
+footer { padding: var(--espaco-8) var(--margem-pagina); text-align: center; background: var(--cor-suave); }
+footer p { margin: var(--espaco-1) 0; }
+.pular { position: absolute; top: -100px; left: var(--espaco-3); padding: var(--espaco-3); background: var(--cor-superficie); z-index: 1; }
+.pular:focus { top: var(--espaco-3); }
+/* Componentes simples de feedback, com as cores do Design System. */
+.badge {
+    display: inline-block;
+    align-self: flex-start;
+    max-width: 100%;
+    margin-bottom: var(--espaco-3);
+    padding: var(--espaco-1) var(--espaco-2);
+    border-radius: var(--raio-padrao);
+    background-color: var(--cor-primaria);
+    color: var(--cor-superficie);
+    font-size: var(--texto-pequeno);
+    font-weight: bold;
+}
+
+.alerta-info {
+    padding: var(--espaco-4);
+    border-left: var(--espaco-1) solid var(--cor-secundaria);
+    border-radius: var(--raio-pequeno);
+    background-color: var(--cor-aviso);
+    color: var(--cor-texto);
+}
+
+.toast-sucesso {
+    padding: var(--espaco-4);
+    border: 1px solid var(--cor-primaria);
+    border-left-width: var(--espaco-1);
+    border-radius: var(--raio-pequeno);
+    background-color: var(--cor-suave);
+    color: var(--cor-primaria-escura);
+}
+
+/* Mobile first: as regras abaixo se somam conforme a tela aumenta. */
+@media (min-width: 480px) {
+    :root {
+        --margem-pagina: var(--espaco-5);
+        --intervalo-grid: var(--espaco-5);
+    }
+}
+
+@media (min-width: 640px) {
+    .acoes-formulario button {
+        flex: 0 1 auto;
+    }
+
+    .foto-inicial {
+        max-height: 20rem;
+    }
+}
+
+@media (min-width: 768px) {
+    /* A partir de 768px, o menu horizontal substitui o hambúrguer. */
+    .menu-mobile {
+        display: none;
+    }
+
+    .menu-desktop {
+        display: flex;
+    }
+
+    .menu-desktop .menu-lista {
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+    }
+
+    .menu-desktop .submenu {
+        position: relative;
+    }
+
+    .menu-desktop .submenu-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 15rem;
+        z-index: 2;
+        text-align: left;
+    }
+
+    :root {
+        --margem-pagina: var(--espaco-8);
+        --intervalo-grid: var(--espaco-6);
+        --recuo-bloco: var(--espaco-6);
+    }
+
+    .inicio > .ajuda,
+    .inicio > #contato {
+        grid-column: span 6;
+    }
+
+    .projetos > #doacoes,
+    .projetos > #voluntariado {
+        grid-column: span 6;
+    }
+
+    .animais {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    fieldset {
+        padding: var(--espaco-5);
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --recuo-bloco: var(--espaco-8);
+    }
+
+    .cabecalho-interno {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .inicio > .apresentacao {
+        grid-column: 1 / 9;
+        grid-row: 2 / span 2;
+    }
+
+    .inicio > .ajuda {
+        grid-column: 9 / -1;
+        grid-row: 2;
+    }
+
+    .inicio > #contato {
+        grid-column: 9 / -1;
+        grid-row: 3;
+    }
+
+    .projetos > #adocao {
+        grid-column: 1 / 5;
+    }
+
+    .projetos > #animais {
+        grid-column: 5 / -1;
+    }
+
+    .cadastro > section {
+        grid-column: 1 / 9;
+    }
+
+    .cadastro > aside {
+        grid-column: 9 / -1;
+    }
+
+    .demonstracao > section {
+        grid-column: 3 / 11;
+    }
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --margem-pagina: var(--espaco-12);
+    }
+
+    .foto-inicial {
+        max-height: var(--altura-capa);
+    }
+}

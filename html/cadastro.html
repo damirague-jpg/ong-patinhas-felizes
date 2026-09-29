@@ -5,21 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Formulário demonstrativo de cadastro de voluntários da ONG Patinhas Felizes.">
     <title>Cadastro de voluntário | ONG Patinhas Felizes</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header>
+        <div class="cabecalho-interno">
+        <div class="marca">
         <p class="nome-ong">ONG Patinhas Felizes</p>
         <p>Cuidado, carinho e uma nova chance.</p>
-        <nav aria-label="Menu principal">
-            <a href="index.html">Início</a>
-            <a href="projetos.html">Projetos</a>
-            <a href="cadastro.html" aria-current="page">Seja voluntário</a>
+        </div>
+        <!-- Apenas uma das duas navegações fica visível em cada tamanho de tela. -->
+        <nav class="menu-desktop" aria-label="Menu principal">
+            <ul class="menu-lista">
+                <li><a href="../index.html">Início</a></li>
+                <li>
+                    <details class="submenu">
+                        <summary>Projetos</summary>
+                        <ul class="submenu-links">
+                            <li><a href="projetos.html">Todos os projetos</a></li>
+                            <li><a href="projetos.html#adocao">Adoção responsável</a></li>
+                            <li><a href="projetos.html#doacoes">Doações</a></li>
+                            <li><a href="projetos.html#voluntariado">Voluntariado</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a href="cadastro.html" aria-current="page">Seja voluntário</a></li>
+            </ul>
         </nav>
+        <details class="menu-mobile">
+            <summary><span aria-hidden="true">☰</span> Menu</summary>
+            <nav aria-label="Menu principal">
+                <ul class="menu-lista">
+                <li><a href="../index.html">Início</a></li>
+                <li>
+                    <details class="submenu">
+                        <summary>Projetos</summary>
+                        <ul class="submenu-links">
+                            <li><a href="projetos.html">Todos os projetos</a></li>
+                            <li><a href="projetos.html#adocao">Adoção responsável</a></li>
+                            <li><a href="projetos.html#doacoes">Doações</a></li>
+                            <li><a href="projetos.html#voluntariado">Voluntariado</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a href="cadastro.html" aria-current="page">Seja voluntário</a></li>
+            </ul>
+            </nav>
+        </details>
+        </div>
     </header>
 
-    <main id="conteudo">
+    <main id="conteudo" class="cadastro">
         <h1>Cadastro de voluntário</h1>
         <p>Seu tempo pode fazer parte de uma nova história.</p>
         <section>
@@ -120,8 +157,10 @@
                     <input type="checkbox" id="ciente" name="ciente" value="sim" required>
                     Estou ciente de que este cadastro é apenas uma demonstração. *
                 </label>
+                <div class="acoes-formulario">
                 <button type="submit">Testar cadastro</button>
                 <button class="secundario" type="reset">Limpar campos</button>
+                </div>
             </form>
         </section>
         <aside>
@@ -137,3 +176,4 @@
     </footer>
 </body>
 </html>
+
